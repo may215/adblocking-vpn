@@ -10,9 +10,15 @@ Quite simply, this guide will set you up with a Linux server that runs OpenVPN, 
   - Disclaimer: Wherever you get a server from, be sure you're obeying their TOS. I'm not responsible for anything you do from following this guide.
 
 ## Instructions
-1. sudo apt update && sudo apt upgrade
-#### Install iptables-persistent so any iptables rules we make now will be restored on succeeding bootups. When asked if you want to save the current IPv4 and IPv6 rules, choose No for both protocols.
-2. apt install iptables-persistent
+
+#### 1. Update the system:
+```
+sudo apt update && sudo apt upgrade
+```
+#### 2. Install iptables-persistent so any iptables rules we make now will be restored on succeeding bootups. When asked if you want to save the current IPv4 and IPv6 rules, choose No for both protocols.
+```
+apt install iptables-persistent
+```
 #### Add IPv4 rules: iptables-persistent stores its rulesets in the files /etc/iptables/rules.v4 and /etc/iptables/rules.v6. Open the rules.v4: Explicitly allow what can be accessed within the VPN:
 
 #### These commands will allow DNS and HTTP needed for name resolution:
